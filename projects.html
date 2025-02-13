@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+    <style>
+        body {
+            background-image: url("./elements/Home.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 60px;
+            min-height: 150vh;
+            cursor: url("C:/Users/Prajeeta/Documents/GitHub/portfolio2025/elements/cursor.png"), default;
+        }
+
+        h1 {
+            font-family: 'Jersey 10', sans-serif;
+            font-size: 6em;
+            color: white;
+            margin: 20px 0;
+            text-align: center;
+            max-width: 90vw;
+            word-wrap: break-word;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: right;
+            align-items: right;
+            gap: 6px;
+        }
+
+        .nav-button {
+            font-family: 'Alata', sans-serif;
+            font-size: 1.1rem;
+            padding: 12px 18px;
+            color: rgb(244, 239, 239);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            cursor: url("C:/Users/Prajeeta/Documents/GitHub/portfolio2025/elements/cursor.png"), default;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 45px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            font-family: 'Alata', sans-serif;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(74, 169, 253, 0.8);
+        }
+
+        .project-header {
+            border-radius: 8px;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .description {
+            flex-grow: 1;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .frameworks {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .frameworks span {
+            background: rgba(255, 253, 253, 0.2);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .mac-buttons {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .mac-buttons span {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        .red { background: rgba(174, 10, 10, 0.653); }
+        .yellow { background: rgba(184, 184, 1, 0.789); }
+        .green { background: rgba(0, 128, 0, 0.601); }
+        .more a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .more a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .more a::after {
+            content: '\2197'; /* Upward right arrow */
+            margin-left: 5px;
+        }
+
+        .more a:hover {
+            text-decoration: underline;
+        }
+        .floating-plant {
+            position: fixed;
+  bottom: 5px;
+  left: 20px;
+  width: 150px;
+  z-index: 10;
+  height: 150px;
+}
+
+@keyframes floatPlant {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px); /* Floating effect */
+  }
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="projects.html" class="nav-button">Projects</a>
+        <a href="designs.html" class="nav-button">Designs</a>
+        <a href="more.html" class="nav-button">More</a>
+    </nav>
+</header>
+
+<main>
+    <h1>PROJECTS</h1>
+    <div class="projects-container">
+        <div class="project-card">
+            <div class="mac-buttons"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="project-header"><img src="./elements/project placeholder 1.png" alt="Brain Tumor Detection"></div>
+            <div class="description">An AI-powered system for detecting brain tumors from MRI scans.</div>
+            <div class="frameworks"><span>Python</span><span>Glob</span><span>OpenCV</span></div>
+            <div class="more"><a href="#">open</a></div>
+        </div>
+
+        <div class="project-card">
+            <div class="mac-buttons"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="project-header"><img src="./elements/project placeholder 2.png" alt="BPCL APIs"></div>
+            <div class="description">Developed secure APIs for Bharat Petroleum Corporation Limited.</div>
+            <div class="frameworks"><span>ASP.NET</span><span>C#</span><span>API</span></div>
+            <div class="more"><a href="#">open</a></div>
+        </div>
+
+        <div class="project-card">
+            <div class="mac-buttons"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="project-header"><img src="./elements/project placeholder 3.png" alt="Restaurant Reviews"></div>
+            <div class="description">A web application for user-generated restaurant reviews and ratings.</div>
+            <div class="frameworks"><span>Python</span><span>BeautifulSoup</span><span>WebScraping</span></div>
+            <div class="more"><a href="#">open</a></div>
+        </div>
+    </div>
+    <img src="./elements/plant 3.gif" alt="Pixelated Plant" class="floating-plant">
+</main>
+
+</body>
+</html>

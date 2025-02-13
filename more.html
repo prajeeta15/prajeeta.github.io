@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Portfolio Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Alata" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
+    
+    <style>
+      body {
+            background-image: url("./elements/Home.png"); /* Ensure correct path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0px;
+            min-height: 100vh;
+            cursor: url("C:/Users/Prajeeta/Documents/GitHub/portfolio2025/elements/cursor.png"), default;
+        }
+
+        h1 {
+    font-family: 'Jersey 10', sans-serif;
+    font-size: 5rem !important;
+    color: white;
+    text-align: center;
+    margin: 60px 0;
+}
+
+      /* Navigation Bar */
+      header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 20px;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: right;
+            align-items: right;
+            gap: 6px;
+        }
+
+        .nav-button {
+            font-family: 'Alata', sans-serif;
+            font-size: 1.1rem;
+            padding: 12px 18px;
+            color: rgb(244, 239, 239);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            cursor: url("C:/Users/Prajeeta/Documents/GitHub/portfolio2025/elements/cursor.png"), default;
+        }
+        .blog-container {
+        max-width: 1000px;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        color: white;
+      }
+      
+      .blog-post {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 255, 100, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      
+      .blog-post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 10px rgba(0, 255, 100, 0.1);
+      }
+      
+      .ticket-container {
+        position: relative;
+        width: 400px;
+        margin: 300px auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .ticket {
+        position: absolute;
+        width: 200px;
+        transition: transform 0.5s ease-in-out;
+      }
+      
+      .ticket:nth-child(1) {
+        transform: translateX(-10px) rotate(-5deg);
+        z-index: 2;
+      }
+      
+      .ticket:nth-child(2) {
+        transform: translateX(10px) rotate(5deg);
+        z-index: 1;
+      }
+      
+      .ticket-container:hover .ticket:nth-child(1) {
+        transform: translateX(-80px) rotate(-10deg);
+      }
+      
+      .ticket-container:hover .ticket:nth-child(2) {
+        transform: translateX(80px) rotate(10deg);
+      }
+      
+      .book-container {
+        background: rgba(173, 216, 230, 0.3);
+        padding: 10px;
+        border-radius: 8px;
+        max-width: 300px;
+        margin: 30px auto;
+        text-align: center;
+        color: white;
+        transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
+      }
+      
+      .book-container:hover {
+        transform: scale(1.1);
+        background: rgba(173, 216, 230, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="projects.html" class="nav-button">Projects</a>
+        <a href="designs.html" class="nav-button">Designs</a>
+        <a href="more.html" class="nav-button">More</a>
+      </nav>
+    </header>
+    
+    <main>
+      <h1>BLOG</h1>
+      
+      <div class="blog-container">
+        <div class="blog-post">
+          <p class="blog-date">Feb 13, 2025</p>
+          <h2 class="blog-title">Creating a Retro Game-Inspired UI</h2>
+          <p class="blog-content">Exploring how pixel art, dark themes, and retro elements can create an immersive UI experience...</p>
+        </div>
+        
+        <div class="blog-post">
+          <p class="blog-date">Feb 10, 2025</p>
+          <h2 class="blog-title">Why Minimalism Works in Web Design</h2>
+          <p class="blog-content">Minimalism isn't just about aesthetics—it improves usability and accessibility. Let's break it down...</p>
+        </div>
+      </div>
+      
+      <h1>BOOK REVIEWS</h1>
+      <div class="book-container">
+        <div class="book-review">
+          <p class="book-date">Feb 5, 2025</p>
+          <h2 class="book-title">The Pragmatic Programmer</h2>
+          <p class="book-content">A must-read for software developers looking to enhance their skills with practical insights and timeless advice...</p>
+        </div>
+      </div>
+      
+      <div class="ticket-container">
+        <div class="ticket">
+            <img src="./elements/concert.png" width="200px">
+        </div>
+        <div class="ticket">
+            <img src="./elements/concert back.png" width="200px">
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
