@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
     <style>
         body {
-            background-image: url("Home.png");
+            background-image: url("./elements/Home.png");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -65,6 +65,7 @@
             gap: 45px;
             width: 90%;
             max-width: 1200px;
+            margin: 0 auto;
         }
 
         .project-card {
@@ -87,7 +88,7 @@
 
         .project-header {
             border-radius: 8px;
-            height: 170px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,6 +99,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
+            clip-path: polygon(0% 0%, 80% 0%, 100% 20%, 100% 100%, 0% 100%);
+
         }
 
         .description {
@@ -116,7 +119,7 @@
 
         .frameworks span {
             background: rgba(255, 253, 253, 0.2);
-            padding: 5px 10px;
+            padding: 10px 10px;
             border-radius: 15px;
             font-size: 12px;
         }
@@ -124,7 +127,7 @@
         .mac-buttons {
             position: absolute;
             top: 5px;
-            right: 15px;
+            left: 22px;
             display: flex;
             gap: 5px;
         }
@@ -141,8 +144,8 @@
         .green { background: rgba(0, 128, 0, 0.601); }
         .more a {
             color: white;
+            font-size: small;
             text-decoration: none;
-            font-weight: bold;
             display: flex;
             align-items: center;
         }
@@ -152,32 +155,56 @@
             font-weight: bold;
             display: flex;
             align-items: center;
+            position: absolute;
+            top: 12px;
+            right: 10px;
         }
+
 
         .more a::after {
             content: '\2197'; /* Upward right arrow */
-            margin-left: 5px;
+            margin-left: 2px;
         }
 
         .more a:hover {
             text-decoration: underline;
         }
-        .floating-plant {
-            position: fixed;
-  bottom: 5px;
-  left: 20px;
-  width: 150px;
-  z-index: 10;
-  height: 150px;
+.health-bar {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-@keyframes floatPlant {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-15px); /* Floating effect */
-  }
+.heart {
+    width: 50px;
+    height: 50px;
+    background: url('heart.png') no-repeat center/contain;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.grey-heart {
+    background: url('grey-heart.png') no-repeat center/contain;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+.gif-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gif {
+    width: 150px;
+    height: auto;
 }
     </style>
 </head>
@@ -185,7 +212,7 @@
 
 <header>
     <nav>
-        <a href="index.html" class="nav-button">Home</a>
+        <a href="home.html" class="nav-button">Home</a>
         <a href="projects.html" class="nav-button">Projects</a>
         <a href="designs.html" class="nav-button">Designs</a>
         <a href="more.html" class="nav-button">More</a>
@@ -193,11 +220,14 @@
 </header>
 
 <main>
-    <h1>PROJECTS</h1>
+    <div class="gif-container">
+        <img src="puter.gif" alt="Animated GIF" class="gif">
+        <h1>PROJECTS</h1>
+    </div>
     <div class="projects-container">
         <div class="project-card">
             <div class="mac-buttons"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-            <div class="project-header"><img src="project placeholder 1.png" alt="Brain Tumor Detection"></div>
+            <div class="project-header"><img src="project placeholder 2.png" alt="Brain Tumor Detection"></div>
             <div class="description">An AI-powered system for detecting brain tumors from MRI scans.</div>
             <div class="frameworks"><span>Python</span><span>Glob</span><span>OpenCV</span></div>
             <div class="more"><a href="#">open</a></div>
@@ -205,7 +235,7 @@
 
         <div class="project-card">
             <div class="mac-buttons"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-            <div class="project-header"><img src="project placeholder 2.png" alt="BPCL APIs"></div>
+            <div class="project-header"><img src="project placeholder 1.png" alt="BPCL APIs"></div>
             <div class="description">Developed secure APIs for Bharat Petroleum Corporation Limited.</div>
             <div class="frameworks"><span>ASP.NET</span><span>C#</span><span>API</span></div>
             <div class="more"><a href="#">open</a></div>
@@ -219,8 +249,39 @@
             <div class="more"><a href="#">open</a></div>
         </div>
     </div>
-    <img src="plant 3.gif" alt="Pixelated Plant" class="floating-plant">
+    <!-- Health Bar -->
+<div class="health-bar">
+    <div class="heart" id="heart1"></div>
+    <div class="heart" id="heart2"></div>
+    <div class="heart" id="heart3"></div>
+    <div class="heart" id="heart4"></div>
+    <div class="heart" id="heart5"></div>
+</div>
 </main>
+<script>
+    const hearts = document.querySelectorAll(".heart");
+let index = 0;
 
+function blinkHeart() {
+    if (index > 0) {
+        hearts[index - 1].classList.remove("blinking");
+        hearts[index - 1].classList.add("grey-heart");
+    }
+
+    if (index < hearts.length) {
+        hearts[index].classList.add("blinking");
+
+        setTimeout(() => {
+            hearts[index].classList.remove("blinking");
+            hearts[index].classList.add("grey-heart");
+            index++;
+            blinkHeart();
+        }, 3000); // Waits 3 seconds before moving to the next heart
+    }
+}
+
+blinkHeart();
+
+</script>
 </body>
 </html>
