@@ -8,24 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Jersey 10" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const flipBook = (elBook) => {
-          elBook.style.setProperty("--c", 0); // Set current page
-          elBook.querySelectorAll(".page").forEach((page, idx) => {
-            page.style.setProperty("--i", idx);
-            page.addEventListener("click", (evt) => {
-              if (evt.target.closest("a")) return;
-              const curr = evt.target.closest(".back") ? idx : idx + 1;
-              elBook.style.setProperty("--c", curr);
-            });
-          });
-        };
-
-        document.querySelectorAll(".book").forEach(flipBook);
-      });
-    </script>
-
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
       @import url("https://fonts.googleapis.com/css?family=Jersey 10");
@@ -67,186 +49,15 @@
       }
 h1 {
             font-family: 'Jersey 10', sans-serif;
-            font-size: 6em;
+            font-size: 16em;
             color: white;
             margin: 20px 0;
             text-align: center;
-            max-width: 90vw;
+            max-width: 120vw;
             word-wrap: break-word;
         }
-      .book {
-        position: relative;
-        display: flex;
-        width: 60cqmin;
-        pointer-events: none;
-        transform-style: preserve-3d;
-        transition: translate 1s;
-        translate: calc(min(var(--c), 1) * 50%) 0%;
-        rotate: 1 0 0 30deg;
-      }
-
-      .page {
-        --thickness: 3;
-        flex: none;
-        display: flex;
-        width: 100%;
-        font-size: 2cqmin;
-        pointer-events: all;
-        user-select: none;
-        transform-style: preserve-3d;
-        transform-origin: left center;
-        transition: transform 1s,
-          rotate 1s ease-in
-            calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
-        translate: calc(var(--i) * -100%) 0px 0px;
-        transform: translateZ(
-          calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * 0.23cqmin))
-        );
-        rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
-      }
-
-      .front,
-      .back {
-        position: relative;
-        flex: none;
-        width: 100%;
-        backface-visibility: hidden;
-        overflow: hidden;
-        background-color: black;
-        /* Fix backface visibility Firefox: */
-        translate: 0px;
-        font-family: 'Alata';
-      }
-
-      .back {
-        translate: -100% 0;
-        rotate: 0 1 0 180deg;
-      }
-
-      .book {
-        counter-reset: page -1;
-        & a {
-          color: inherit;
-        }
-      }
-
-      .page {
-        box-shadow: 0em 0.5em 1em -0.2em #00000020;
-      }
-
-      .front,
-      .back {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-between;
-        padding: 2em;
-        border: 1px solid #0002;
-
-        &:has(img) {
-          padding: 0;
-        }
-
-        & img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-
-        &::after {
-          position: absolute;
-          bottom: 1em;
-          counter-increment: page;
-          content: counter(page) "."; 
-          font-size: 0.8em;
-        }
-      }
-      .cover {
-        &::after {
-          content: "";
-        }
-      }
-      .front {
-        &::after {
-          right: 1em;
-        }
-        background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
-        border-radius: 0.1em 0.5em 0.5em 0.1em;
-      }
-      .back {
-        &::after {
-          left: 1em;
-        }
-        background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
-        border-radius: 0.5em 0.1em 0.1em 0.5em;
-      }
-
-      .cover {
-        background: radial-gradient(
-            circle farthest-corner at 80% 20%,
-            hsl(150 80% 20% / 0.3) 0%,
-            hsl(170 60% 10% / 0.1) 100%
-          ),
-          hsl(231, 32%, 29%)
-            url("temple.jpg")
-            50% / cover;
-        color: hsl(200 30% 98%);
-        font-family: 'Alata', 'sans-serif';
-        font-size: 26px;
-      }
-      .more {
-        margin-top: 50px;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .more a {
-        font-family: "Akira Expanded", sans-serif;
-        color: white;
-        text-decoration: none;
-        font-size: 2rem;
-        position: relative;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .more a:hover {
-        text-decoration: underline;
-      }
-
-      .more a::after {
-        content: " →"; /* Unicode right arrow */
-        opacity: 0;
-        transform: translateX(-5px);
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      }
-
-      .more a:hover::after {
-        opacity: 1;
-        transform: translateX(5px);
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 768px) {
-        .nav-button {
-          display: block;
-          text-align: center;
-        }
-
-        .book {
-          width: 100%;
-        }
-        .page {
-          font-size: 1.5rem;
-        }
-
-        .front,
-        .back {
-          padding: 1em;
-        }
-
-        .more a {
-          font-size: 1.5rem;
-        }
-      }
+      
+      
       @keyframes glitch {
   0% { text-shadow: -2px 2px red; }
   50% { text-shadow: 2px -2px blue; }
@@ -276,156 +87,284 @@ h1 {
       }
 
       .gameboy.on .gameboy-screen {
-        background: green;
+        background-image: url("gameboy-screen.png");
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        font-family: monospace;
-        color: black;
+        justify-content: contain;
+        object-fit: contain;
       }
-    .floating-plant {
+
+
+/* Loading Bar Container - Positioned Below Heading */
+#loading-bar-wrapper {
+  text-align: center;
+  margin-top: 20px; /* Adjust space below heading */
+}
+
+/* Loading Text */
+#loading-text {
+  font-family: 'Jersey 10', sans-serif;
+  font-size: 2rem;
+  color: #39ff14; /* Neon Green */
+  margin-bottom: 5px;
+}
+
+/* Loading Bar Box */
+#loading-bar-container {
+  width: 320px;
+  height: 40px;
+  background: #555;
+  border: 4px solid black;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  image-rendering: pixelated;
+  box-shadow: 4px 4px 0px black, 8px 8px 0px rgba(0, 0, 0, 0.5);
+  margin: 0 auto; /* Center it */
+}
+
+/* Filling Bar */
+#loading-bar {
+  width: 0%;
+  height: 100%;
+  background: pink;
+  image-rendering: pixelated;
+  animation: blink 0.2s infinite alternate; /* Blinking effect */
+}
+@keyframes spaceshipMove {
+  0% {
+    top: 100vh; /* Start off-screen at the bottom */
+  }
+  100% {
+    top: -100px; /* Move off-screen at the top */
+  }
+}
+.dialog-box {
+            position: absolute;
+            width: 200px;
+            background-color: gray;
+            border: 2px solid black;
+            box-shadow: 5px 5px 10px rgb(202, 103, 119);
+            display: flex;
+            flex-direction: column;
+        }
+        .dialog-header {
+            background-color: lightblue;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            cursor: move;
+        }
+        .dialog-header span {
+            font-weight: bold;
+        }
+        .dialog-controls {
+            display: flex;
+            gap: 5px;
+        }
+        .dialog-controls button {
+            background-color: lightblue;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .dialog-content img {
+            width: 100%;
+            height: auto;
+        }
+.spaceship {
   position: absolute;
-  top:  20px; /* Below the "DESIGNS" text */
-  left: 10px; 
-  width: 170px;
-  height: auto;
-  image-rendering: pixelated;
-  animation: floatPlant 3s ease-in-out infinite alternate;
-  z-index: 10; /* Ensure it appears above other elements */
+  left: 20px; /* Keeps it on the left */
+  width: 100px; /* Adjust size as needed */
+  animation: spaceshipMove 10s linear infinite; /* Moves continuously */
 }
 
-@keyframes floatPlant {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-15px); /* Floating effect */
-  }
-}
-
-/* Dogi GIF - Bottom Left */
-#dogi-container {
-  position: fixed;
-  bottom: 5px;
-  left: 20px;
-  width: 300px;
-  z-index: 10;
-}
-
-.dogi {
-  width: 100%;
-  height: auto;
-  image-rendering: pixelated;
-}
-
-    </style>
+</style>
 
   </head>
   <body>
     <header>
       <nav>
-        <a href="index.html" class="nav-button">Home</a>
+        <a href="home.html" class="nav-button">Home</a>
         <a href="projects.html" class="nav-button">Projects</a>
         <a href="designs.html" class="nav-button">Designs</a>
         <a href="more.html" class="nav-button">More</a>
     </nav>
     </header>
-
-    <main class="relative">      
-      <div class="container mx-auto mt-16 px-14">
+    
+    <main class="relative">   
+      <div class="gameboy" onclick="toggleGameboyScreen()">
+        <div class="gameboy-screen"></div>
+      </div>   
         <h1 class="text-7xl font-extrabold text-white" style="letter-spacing: 0.2em;">DESIGNS</h1>
-
-        <div class="book">
-          <div class="page">
-            <div class="front cover">
-              <h2>FlipBook Posters and Photographs</h2>
-              <p>2025.<br />portfolio</p>
-            </div>
-            <div class="back">
-              <h2>A walkthrough.</h2>
-            </div>
-          </div>
-
-          <div class="page">
-            <div class="front">
-<img src="cosmos.png" alt="Cosmos Image" />
-
-
-            </div>
-            <div class="back">
-<img src="A4 - 4.png" alt="A4 Image" />
-
-
-            </div>
-          </div>
-
-          <div class="page">
-            <div class="front">
-<img src="weeknd.png" alt="Weeknd Image" />
-
-
-            </div>
-            <div class="back">
-            <img src="trying2.png" alt="Img 4" />
-
-            </div>
-          </div>
-
-          <div class="page">
-            <div class="front">
-<img src="talwiinder.jpg" alt="Talwiinder Image" />
-
-
-            </div>
-            <div class="back">
-<img src="kendrick.jpg" alt="Kendrick Image" />
-
-
-            </div>
-          </div>
-
-          <div class="page">
-            <div class="front">
-<img src="qutub minar.jpg" alt="Qutub Minar Image" />
-
-
-            </div>
-            <div class="back">
-<img src="scooter.jpg" alt="Scooter Image" />
-
-
-            </div>
-          </div>
-        </div>
-        <img src="plant 1.gif" alt="Pixelated Plant" class="floating-plant">
-  </div>
-  
-  <div id="dogi-container">
-    <img src="dogi.gif" alt="Dogi GIF" class="dogi">
-  </div>
-  
+        <div id="loading-bar-wrapper">
+          <div id="loading-text">LOADING...</div>
+          <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+   
     </main>
-    <div class="gameboy" onclick="toggleGameboyScreen()">
-      <div class="gameboy-screen"></div>
-    </div>
-
+    <img src="spaceship.gif" class="spaceship" alt="Spaceship">
     <script>
-      function toggleGameboyScreen() {
-        const screen = document.querySelector(".gameboy-screen");
-        const gameboy = document.querySelector(".gameboy");
-        
-        if (gameboy.classList.toggle("on")) {
-          screen.textContent = ":)";
-        } else {
-          screen.textContent = "";
-        }
-      }
+      document.addEventListener("DOMContentLoaded", () => {
+    const loadingBar = document.getElementById("loading-bar");
 
-      document.addEventListener("scroll", () => {
-        const gameboy = document.querySelector(".gameboy");
-        gameboy.style.top = `${window.scrollY + 100}px`;
-      });
+    function startLoading() {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 12;
+            loadingBar.style.width = progress + "%";
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                console.log("Loading complete, showing dialog boxes...");
+                
+                showDialogsSequentially();
+            }
+        }, 300);
+    }
+
+    startLoading();
+});
+
+function showDialogsSequentially() {
+    const totalDialogs = 12;
+    let delay = 500; // Time gap between each dialog (in ms)
+
+    for (let i = 0; i < totalDialogs; i++) {
+        setTimeout(() => {
+            createDialogBox();
+        }, i * delay);  // Increases delay for each dialog
+    }
+}
+
+function createDialogBox() {
+    const images = [
+        "black-swan.png", 
+        "jordans.png", 
+        "scooter.jpg", 
+        "cosmos.png", 
+        "kendrick.jpg",
+        "minar.jpg",
+        "rajbari.png",
+        "talwiinder.jpg",
+        "trying2.png",
+        "weeknd.png",
+        "temple.jpg"
+    ]; 
+
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+    const dialog = document.createElement("div");
+    dialog.classList.add("dialog-box");
+    dialog.style.position = "absolute";
+    dialog.style.width = "300px";  // Medium size
+    dialog.style.height = "auto";
+    dialog.style.top = Math.random() * (window.innerHeight - 300) + "px";
+    dialog.style.left = Math.random() * (window.innerWidth - 300) + "px";
+    dialog.style.background = "#ADD8E6";
+    dialog.style.border = "2px solid black";
+    dialog.style.boxShadow = "5px 5px 10px rgb(202, 103, 119)";
+    dialog.style.zIndex = "100"; // Base z-index
+
+    dialog.addEventListener("mousedown", () => {
+        document.querySelectorAll(".dialog-box").forEach(box => box.style.zIndex = "100");
+        dialog.style.zIndex = "500"; // Bring clicked dialog to front
+    });
+
+    const header = document.createElement("div");
+    header.classList.add("dialog-header");
+    header.style.background = "#ADD8E6";
+    header.style.color = "#444";
+    header.style.padding = "5px 10px";
+    header.style.display = "flex";
+    header.style.justifyContent = "space-between";
+    header.style.cursor = "grab";
+
+    let isDragging = false, offsetX, offsetY;
+
+    header.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - dialog.offsetLeft;
+        offsetY = e.clientY - dialog.offsetTop;
+        dialog.style.zIndex = "500"; // Bring to front
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            dialog.style.left = e.clientX - offsetX + "px";
+            dialog.style.top = e.clientY - offsetY + "px";
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
+
+    const title = document.createElement("span");
+    title.textContent = "posters&more";
+
+    const controls = document.createElement("div");
+    controls.classList.add("dialog-controls");
+
+    const minimize = document.createElement("button");
+    minimize.textContent = "🗕";
+    minimize.onclick = () => (dialog.style.display = "none");
+
+    const maximize = document.createElement("button");
+    maximize.textContent = "🗖";
+    maximize.onclick = () => {
+        dialog.style.width = "400px";
+        dialog.style.height = "auto";
+    };
+
+    const close = document.createElement("button");
+    close.textContent = "❌";
+    close.onclick = () => dialog.remove();
+
+    controls.appendChild(minimize);
+    controls.appendChild(maximize);
+    controls.appendChild(close);
+
+    header.appendChild(title);
+    header.appendChild(controls);
+
+    const content = document.createElement("div");
+    content.classList.add("dialog-content");
+    content.style.padding = "10px";
+
+    const img = document.createElement("img");
+    img.src = randomImage;
+    img.style.width = "100%";
+    img.style.height = "auto";
+    img.onerror = function () {
+        console.error("Image failed to load:", randomImage);
+        img.src = "default.jpg";
+    };
+
+    content.appendChild(img);
+
+    dialog.appendChild(header);
+    dialog.appendChild(content);
+
+    document.body.appendChild(dialog);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const gameboy = document.querySelector(".gameboy");
+    
+    gameboy.addEventListener("click", function () {
+        gameboy.classList.toggle("on");
+    });
+
+    const spaceship = document.querySelector(".spaceship");
+    if (spaceship) {
+        spaceship.style.position = "absolute";  // Ensure absolute positioning
+        spaceship.style.left = "0px";
+        spaceship.style.maxWidth = "100%"; // Prevents it from overflowing
+        spaceship.style.height = "auto"; // Maintains aspect ratio
+        spaceship.style.objectFit = "contain"; // Ensures image is fully visible
+    }
+});
     </script>
     
   </body>
