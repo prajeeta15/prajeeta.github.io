@@ -17,8 +17,6 @@
   <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
-
-    /* Background movement */
     body {
       background-image: url("Home.png");
       background-size: cover;
@@ -54,7 +52,7 @@
             transition: color 0.3s ease-in-out;
             cursor: url("cursor.png"), default;
         }
-    /* 3D Flip Styles */
+    
     .perspective-1000 {
       perspective: 1000px;
     }
@@ -500,9 +498,9 @@ button {
   border: 0;
   background-color: white;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAFRJREFUKFNjZICC/////4exsdGMjIyMIHEwQUgxzACQJkZsikOPfAarWW3Di2EZhgaYYphKdE0oGtAVY9ME14BLMbomypwEMo0kP9BGA8kRR2rSAACHREftd0fKPgAAAABJRU5ErkJggg==);
-  filter: none; /* Remove the filter */
-  pointer-events: all; /* Allow interactions */
-  cursor: pointer; /* Show pointer on hover */
+  filter: none; 
+  pointer-events: all; 
+  cursor: pointer;
   width: calc(var(--w) * var(--m));
   height: calc(var(--h) * var(--m));
 }
@@ -510,8 +508,8 @@ button {
 
 .hori-btn {
   transform: rotate(90deg);
-  background-image: url("right-arrow.png"); /* Ensure button is visible */
-  border: 2px solid var(--blue); /* Add border for visibility */
+  background-image: url("right-arrow.png"); 
+  border: 2px solid var(--blue); 
 }
 
 .vert-btn {
@@ -720,7 +718,7 @@ a {
 }
 
 #startButton img {
-  width: 150px; /* Adjust size as needed */
+  width: 150px; 
   height: auto;
 }
 
@@ -732,7 +730,7 @@ a {
 </head>
 <body class="text-white">
 
-  <!-- Navigation Bar -->
+  <!-- Nav Bar -->
   <header>
     <nav>
       <a href="index.html" class="nav-button">Home</a>
@@ -741,27 +739,19 @@ a {
       <a href="more.html" class="nav-button">More</a>
   </nav>
   </header>
-
-  <!-- Main Content -->
     <main class="flex-grow container mx-auto px-2">
 
     <section id="home">
       <div class="flex flex-col md:flex-row items-center justify-center relative w-full overflow-visible">
 
-        <!-- Flip Card Container -->
         <div class="relative w-[300px] md:w-[400px] aspect-[3/4] mb-8 md:mb-0 group perspective-1000">
-          
-          <!-- Flip Inner Container -->
+        
           <div class="flip-container">
-
-            <!-- Front Side -->
             <div class="card-side">
               <img src="top card.png" 
                    alt="Front Side" 
                    class="w-full h-full object-cover rounded-lg shadow-lg" />
             </div>
-
-            <!-- Back Side -->
             <div class="card-side card-back">
               <img src="back card.png" 
                    alt="Back Side" 
@@ -770,8 +760,6 @@ a {
 
           </div>
         </div>
-
-        <!-- Introduction Text -->
         <div class="md:w-1/2 md:pl-12 relative z-10 text-center md:text-left">
           <h1 class="text-6xl md:text-8xl font-bold mb-4" style="font-family: 'Jersey 10'; font-size: 100px">
 
@@ -788,7 +776,7 @@ a {
 
     <section id="about" class="parallax relative" style="background: url('About.png') repeat center center/cover;">
       <div class="container mx-auto mt-16 px-14 flex flex-col md:flex-row justify-between items-start">
-    <!-- Scrolling Banner -->
+    <!-- Banner -->
     <div class="absolute top-0 left-0 w-full bg-[#B0B7C2] bg-opacity-60 overflow-hidden border-t-2 border-b-2 border-white flex itmes-center justify-center"
     style="height: 40px; background-image: url('C:\Users\Prajeeta\Documents\GitHub\portfolio2025\elements\Noise.png'); background-size: cover; background-repeat: repeat;">
     <marquee class="text-white text-lg font-semibold tracking-wider"
@@ -802,8 +790,6 @@ a {
 </marquee>
 
     </div>
-
-        <!-- About Text -->
         <div class="md:w-1/3 text-left">
           <img src="receipt.png">
         </div>
@@ -811,12 +797,12 @@ a {
         <!-- Interests and Widgets (Right Side) -->
         <div class="md:w-1/3 flex-col items-end space-y-4 mt-8">       
 
-          <!-- Spotify Now Playing Widget -->
+          <!-- Spotify Widget -->
           <iframe style="border: radius 0px;" src="https://open.spotify.com/embed/playlist/3rIauo839VZKbswbyQJIzJ?utm_source=generator&theme=0" 
                   width="400" height="200" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                   loading="lazy">
           </iframe>
-          <!-- Pinterest Interest Widget -->
+          <!-- Pinterest Widget -->
           <div class="mt-8">
             <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
             <a data-pin-do="embedBoard" data-pin-board-width="430" data-pin-scale-height="240" data-pin-scale-width="80" 
@@ -826,7 +812,7 @@ a {
         </div>
       </div>
       
-      <!-- Floating Images -->
+      <!-- Floating -->
       <div class="absolute top-20 left-1/3 w-32 h-32">
         <img src="reading.png" class="floating-image" />
       </div>
@@ -837,10 +823,9 @@ a {
         <img src="more.png" class="floating-image" />
       </div>
        
-      <!-- Contact Section (Now in the same row as the heading and text) -->
+      <!-- Contact Section -->
 <div class="md:w-full md:pl-12 relative flex justify-between items-start">
   
-  <!-- Left Side: Heading & Text -->
   <div class="max-w-2xl py-20">
     <h1 class="text-6xl md:text-8xl font-bold mb-4" style="font-family: 'Jersey 10'; font-size: 60px">
       Something Cool
@@ -850,8 +835,11 @@ a {
     </p>
   </div>
 
-  <!-- Right Side: Social Links -->
+  <!-- Social Links -->
   <div class="flex space-x-6 pr-6 py-40">
+     <a href="PrajeetaPal_Resume_2025.pdf">
+      <img src="download.png" alt="Download Resume" class="w-5 h-5" />
+    </a>
     <a href="https://github.com/prajeetapal" target="_blank">
       <img src="github.png" alt="GitHub" class="w-5 h-5" />
     </a>
@@ -861,8 +849,11 @@ a {
     <a href="#">
       <img src="instagram.png" alt="Instagram" class="w-5 h-5" />
     </a>
-    <a href="PrajeetaPal_Resume_2025.pdf">
-      <img src="download.png" alt="Download Resume" class="w-5 h-5" />
+    <a href="https://www.behance.net/prajeetapal">
+      <img src="behance.png" alt="Behance" class="w-5 h-5" />
+    </a>
+    <a href="https://open.spotify.com/user/31c3rqhwc6tqwpjaug367z2ujepy?si=dc44017fce58465d">
+      <img src="spotify.png" alt="Spotify" class="w-5 h-5" />
     </a>
   </div>
 
