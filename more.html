@@ -5,44 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog - Portfolio Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Alata" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
     
     <style>
-      body {
-            background-image: url("Home.png"); /* Ensure correct path */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+       body {
+            background: url('./elements/newspaper.jpg');
+            font-family: 'Times New Roman', serif;
             margin: 0;
-            padding: 0px;
-            min-height: 100vh;
+            padding: 20px;
+            color:  rgb(70, 44, 44);
             cursor: url("cursor.png"), default;
         }
-
-        h1 {
-    font-family: 'Jersey 10', sans-serif;
-    font-size: 5rem !important;
-    color: white;
-    text-align: center;
-    margin: 60px 0;
+        body::before {
+           content: "";
+           position: fixed; 
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: url('newspaper.jpg') no-repeat center center/cover;
+           opacity: 0.3; 
+           z-index: -1; 
 }
-
-      /* Navigation Bar */
-      header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 12px 20px;
-            z-index: 1000;
-        }
-
+        
         nav {
             display: flex;
             flex-wrap: wrap;
@@ -55,127 +41,154 @@
             font-family: 'Alata', sans-serif;
             font-size: 1.1rem;
             padding: 12px 18px;
-            color: rgb(244, 239, 239);
+            color: rgb(70, 44, 44);
             text-decoration: none;
             transition: color 0.3s ease-in-out;
             cursor: url("cursor.png"), default;
         }
-        .blog-container {
-        max-width: 1000px;
-        margin: 50px auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        color: white;
-      }
-      
-      .blog-post {
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 8px;
-        box-shadow: 0 0 5px rgba(0, 255, 100, 0.2);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      }
-      
-      .blog-post:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 10px rgba(0, 255, 100, 0.1);
-      }
-      
-      .ticket-container {
-        position: relative;
-        width: 400px;
-        margin: 300px auto 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      
-      .ticket {
-        position: absolute;
-        width: 200px;
-        transition: transform 0.5s ease-in-out;
-      }
-      
-      .ticket:nth-child(1) {
-        transform: translateX(-10px) rotate(-5deg);
-        z-index: 2;
-      }
-      
-      .ticket:nth-child(2) {
-        transform: translateX(10px) rotate(5deg);
-        z-index: 1;
-      }
-      
-      .ticket-container:hover .ticket:nth-child(1) {
-        transform: translateX(-80px) rotate(-10deg);
-      }
-      
-      .ticket-container:hover .ticket:nth-child(2) {
-        transform: translateX(80px) rotate(10deg);
-      }
-      
-      .book-container {
-        background: rgba(173, 216, 230, 0.3);
-        padding: 10px;
-        border-radius: 8px;
-        max-width: 300px;
-        margin: 30px auto;
-        text-align: center;
-        color: white;
-        transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
-      }
-      
-      .book-container:hover {
-        transform: scale(1.1);
-        background: rgba(173, 216, 230, 0.6);
-      }
+
+        .newspaper-header {
+            text-align: center;
+            font-family: 'Old Standard TT', serif;
+            font-size: 5rem;
+            font-weight: 800;
+            border-bottom: 4px double rgb(47, 32, 32);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .newspaper-subheader {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 0.2fr 2fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        .main-article {
+            background: #ded0ad;
+            padding: 20px;
+            border: 1px solid #ccc;
+            transition: background 0.3s ease, box-shadow 0.3s ease;}
+
+           .main-article:hover {
+              background: #e8c97f; /* Lighter shade for highlight */
+              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+              border-color: #aaa; /* Slightly darker border */
+             }
+        .main-article h1 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .sidebar {
+            background: #e4d9c9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+          }
+
+         .sidebar:hover {
+            background: #e4cb91; /* Lighter shade for highlight */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 2); /* Soft shadow effect */
+            border-color: #aaa; /* Slightly darker border */
+            }
+        .blog-post {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed black;
+            padding-bottom: 10px;
+        }
+        .blog-post h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .blog-post a {
+            text-decoration: none;
+            font-weight: bold;
+            color: darkred;
+            border-bottom: 1px dashed darkred;
+        }
+        .ticket-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ticket {
+            position: relative;
+            width: 130px;
+            height: 260px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .ticket:hover {
+            transform: rotateY(180deg);
+        }
+        .ticket img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .ticket .back {
+            transform: rotateY(180deg);
+        }
+        .edge-image {
+    position: fixed;
+    top: 22%;
+    width: 150px; 
+    height: auto;
+    transform: translateY(-50%); 
+    z-index: 1000; }
+
+.left {
+    left: 5px; 
+}
+
+.right {
+    right: 5px; 
+}
+
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <a href="index.html" class="nav-button">Home</a>
+        <a href="home.html" class="nav-button">Home</a>
         <a href="projects.html" class="nav-button">Projects</a>
         <a href="designs.html" class="nav-button">Designs</a>
         <a href="more.html" class="nav-button">More</a>
       </nav>
     </header>
-    
+    <div class="newspaper-header">The Journal</div>
+        <div class="newspaper-subheader">"Thoughts, News & More"</div>
+        <img src="left.png" alt="Left Image" class="edge-image left">
+        <img src="right.png" alt="Right Image" class="edge-image right">
+
     <main>
-      <h1>BLOG</h1>
-      
-      <div class="blog-container">
-        <div class="blog-post">
-          <p class="blog-date">Feb 13, 2025</p>
-          <h2 class="blog-title">Creating a Retro Game-Inspired UI</h2>
-          <p class="blog-content">Exploring how pixel art, dark themes, and retro elements can create an immersive UI experience...</p>
-        </div>
+      <div class="content-wrapper">
+        <section class="ticket-container">
+          <div class="ticket">
+                <img src="concert.png" alt="Ticket Front" class="front">
+                <img src="concert back.png" alt="Ticket Back" class="back">
+            </div>
+          </section>
+        <section class="main-article">
+            <h1>Every graphic design trend creates a certain shift.</h1>
+            <p>coming soon...</p>
+        </section>
         
-        <div class="blog-post">
-          <p class="blog-date">Feb 10, 2025</p>
-          <h2 class="blog-title">Why Minimalism Works in Web Design</h2>
-          <p class="blog-content">Minimalism isn't just about aesthetics—it improves usability and accessibility. Let's break it down...</p>
+        <aside class="sidebar">
+            <div class="blog-post">
+                <h2>Fault Lines- Unspoken Desires and Neon Dreams </h2>
+                <p>Emily Itami’s debut novel, Fault Lines, is a deeply introspective and poignant exploration of human relationships, choices, and the complexities of love. Told from the perspective of Mizuki....</p>
+                <a href="https://medium.com/@prajeetapal/fault-lines-unspoken-desires-and-neon-dreams-74e026517681">Read More</a>
+            </div>
+        </aside>
+    
         </div>
-      </div>
-      
-      <h1>BOOK REVIEWS</h1>
-      <div class="book-container">
-        <div class="book-review">
-          <p class="book-date">Feb 5, 2025</p>
-          <h2 class="book-title">The Pragmatic Programmer</h2>
-          <p class="book-content">A must-read for software developers looking to enhance their skills with practical insights and timeless advice...</p>
-        </div>
-      </div>
-      
-      <div class="ticket-container">
-        <div class="ticket">
-            <img src="concert.png" width="200px">
-        </div>
-        <div class="ticket">
-            <img src="concert back.png" width="200px">
-        </div>
-      </div>
     </main>
   </body>
 </html>
