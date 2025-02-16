@@ -213,7 +213,13 @@
 @media (max-width: 768px)
 { 
    nav{
-          width: 18vw;}
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%); 
+        display: flex;
+        justify-content: center;
+        width: 100%;}
     .nav-button{
           font-size: 0.7rem;}
     .projects-container{
@@ -231,8 +237,13 @@
     }
 }
 @media (max-width: 1024px)
-{    nav{
-            width: 20vw;}
+{    nav{top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+           }
      .nav-button{
             font-size: 1rem;}
     .projects-container{
@@ -254,7 +265,7 @@
 
 <header>
     <nav>
-        <a href="home.html" class="nav-button">Home</a>
+        <a href="index.html" class="nav-button">Home</a>
         <a href="projects.html" class="nav-button">Projects</a>
         <a href="designs.html" class="nav-button">Designs</a>
         <a href="more.html" class="nav-button">More</a>
