@@ -193,13 +193,11 @@ h1 {
      width:100px;
      height:150px;
      transform: rotate(-5deg);
-  }
   .gameboy-screen{
         top: 20px;
         left: 20px;
         width: 60px;
         height: 60px;
-  }
     .gameboy.on .gameboy-screen{
         top: 20px;
         left: 20px;
@@ -232,13 +230,11 @@ h1 {
      width:80px;
      height:120px;
      transform: rotate(0deg)
-  }
   .gameboy-screen{
         top: 10px;
         left: 10px;
         width: 40px;
         height: 40px;
-  }
     .gameboy.on .gameboy-screen{
        top: 10px;
         left: 10px;
@@ -275,7 +271,6 @@ h1 {
           <div id="loading-bar-container">
             <div id="loading-bar"></div>
           </div>
-   
     </main>
     <img src="spaceship.gif" class="spaceship" alt="Spaceship">
     <script>
@@ -430,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gameboy.classList.toggle("on");
     });
 
-  const spaceship = document.querySelector(".spaceship");
+    const spaceship = document.querySelector(".spaceship");
     if (spaceship) {
         spaceship.style.position = "absolute";  // Ensure absolute positioning
         spaceship.style.left = "0px";
@@ -459,4 +454,4 @@ document.addEventListener("DOMContentLoaded", function () {
       window.addEventListener("DOMContentLoaded", adjustLayout);
     </script>
   </body>
-</html>
+</html> 
