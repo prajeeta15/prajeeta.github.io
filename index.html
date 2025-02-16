@@ -35,23 +35,25 @@
             z-index: 1000;
         }
 
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: right;
-            align-items: right;
-            gap: 6px;
-        }
+       nav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+      }
 
-        .nav-button {
-            font-family: 'Alata', sans-serif;
-            font-size: 1.1rem;
-            padding: 12px 18px;
-            color: rgb(244, 239, 239);
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-            cursor: url("cursor.png"), default;
-        }
+      .nav-button {
+        font-family: 'Alata', sans-serif;
+        font-size: 1.1rem;
+        padding: 12px 18px;
+        color: rgb(244, 239, 239);
+        text-decoration: none;
+        cursor: url("cursor.png"), default;
+      }
     
     .perspective-1000 {
       perspective: 1000px;
@@ -113,6 +115,34 @@
       transition: transform 1.5s ease-out;
       z-index: 11;
     }
+    .marquee-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(176, 183, 194, 0.6); /* bg-[#B0B7C2] with 60% opacity */
+  overflow: hidden;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./elements/Noise.png'); /* Adjusted path */
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+/* banner */
+.marquee-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 35px;
+  font-family: 'Alata', sans-serif;
+  white-space: nowrap;
+}
 
     .parallax {
       transform: translateY(calc(var(--scroll) * -0.5px));
@@ -726,42 +756,63 @@ a {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-    @media (max-width: 768px){
-      .nav-button{
-           font-size: 0.5rem;
-      justify-content-center;}
-      .floating-image{
-          width: 15vw;
-          padding-left:40%}
-      .show-about{
-          width: 10vw;
-          height: auto;
-          justify-content: center;}
-      img { width: 100%; }
-      iframe { width: 250px !important; height: 150px !important; }
-      [data-pin-do="embedBoard"] { width: 300px !important; }
-       h1 { font-size: 25px !important; padding-left: 20px; }
-       p { font-size: 14px !important;padding-left: 20px; }
-      .flex a img { width: 24px !important; height: 24px !important; }}
+   @media (max-width: 768px){
+  .nav{
+    width: 18vw;}
+  .nav-button{
+    font-size: 0.7rem;}
+  .floating-image{
+    display:none;}
+   .marquee-container {
+    height: 30px;}
+  .marquee-text {
+    font-size: 12px; 
+    letter-spacing: 1.5px;}
+  .about-image-container {
+         width: 90%; 
+         margin: 0 auto; 
+        text-align: center;
+        position: relative;
+      z-index:2;}
 
-     @media (max-width: 1024px){
-      .nav-button{
-    font-size: 0.7rem;
-      justify-content: center;}
-      .floating-image{
-    width: 20vw;
-      padding-left: 40%}
-       .show-about{
-      width: 20vw;
-      height: auto;
-       justify-content: center;}
-         img { width: 80%; }
-         iframe { width: 300px !important; height: 180px !important; }
-     [data-pin-do="embedBoard"] { width: 350px !important; }
-        h1 { font-size: 25px !important; padding-left: 20px; }
-        p { font-size: 16px !important; padding-left: 20px;}
-       .flex a img { width: 20px !important; height: 18px !important; }
-    }
+  .about-image-container img {
+    max-width: 80%; 
+  }
+  img { width: 100%; }
+  iframe { width: 300px !important; height: 150px !important; }
+  [data-pin-do="embedBoard"] { width: 300px !important; }
+  h1 { font-size: 40px !important;padding-left: 10px; }
+  p { font-size: 14px !important; padding-left: 10px; }
+  .flex a img { width: 24px !important; height: 24px !important; }}
+
+    @media (max-width: 1024px){
+  .nav{
+    width: 20vw;}
+     .nav-button{
+    font-size: 1rem;}
+    .floating-image{
+     display:none;}
+    .marquee-container {
+    height: 40px;}
+  .marquee-text {
+    font-size: 16px; 
+    letter-spacing: 1.5px;}
+    .about-image-container {
+    width: 90%; 
+    margin: 0 auto; 
+    text-align: center;
+    position:relative; 
+    z-index: 2;
+  }
+  .about-image-container img {
+    max-width: 80%; 
+  }
+    img { width: 80%; }
+  iframe { width: 350px !important; height: 180px !important; }
+  [data-pin-do="embedBoard"] { width: 350px !important; }
+  h1 { font-size: 50px !important; padding-left: 10px; }
+  p { font-size: 16px !important; padding-left: 10px; }
+  .flex a img { width: 20px !important; height: 18px !important; }}
   </style>
 </head>
 <body class="text-white">
@@ -813,21 +864,18 @@ a {
     <section id="about" class="parallax relative" style="background: url('About.png') repeat center center/cover;">
       <div class="container mx-auto mt-16 px-14 flex flex-col md:flex-row justify-between items-start">
     <!-- Banner -->
-    <div class="absolute top-0 left-0 w-full bg-[#B0B7C2] bg-opacity-60 overflow-hidden border-t-2 border-b-2 border-white flex itmes-center justify-center"
-    style="height: 40px; background-image: url('C:\Users\Prajeeta\Documents\GitHub\portfolio2025\elements\Noise.png'); background-size: cover; background-repeat: repeat;">
-    <marquee class="text-white text-lg font-semibold tracking-wider"
-         style="font-family: 'Alata'; font-size:14px; line-height: 35px; letter-spacing: 2px;">
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /
-</marquee>
-
-    </div>
-        <div class="md:w-1/3 text-left">
-          <img src="receipt.png">
+   <div class="marquee-container">
+  <marquee class="marquee-text">
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ABOUT ME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /
+  </marquee>
+</div>
+       <div class="about-image-container">
+          <img src="./elements/receipt.png" alt="About Image">
         </div>
         
         <!-- Interests and Widgets (Right Side) -->
