@@ -207,24 +207,24 @@
 }
 
 .gif {
-    width: 10vw;
+    max-width: 150vw;
+    width: 20vw;
     height: auto;
 }
 @media (max-width: 768px)
 { 
    nav{
         position: absolute;
-        top: 20px;
-        left: 50%;
         transform: translateX(-50%); 
         display: flex;
-        justify-content: center;
-        width: 100%;}
+        width: 100%;
+        flex-direction: column;
+        align-items: center;}
     .nav-button{
           font-size: 0.7rem;}
     .projects-container{
             gap: 30px;
-            width: 40%;
+            width: 90%;
             margin: 0 auto;
     }
     h1 {
@@ -237,8 +237,8 @@
     }
 }
 @media (max-width: 1024px)
-{    nav{top: 20px;
-        left: 50%;
+{    nav{flex-direction: column;
+        align-items: center;
         transform: translateX(-50%);
         display: flex;
         justify-content: center;
@@ -248,7 +248,7 @@
             font-size: 1rem;}
     .projects-container{
             gap: 45px;
-            width: 40%;
+            width: 90%;
             margin: 0 auto;
     }
     h1 {
@@ -337,7 +337,7 @@ blinkHeart();
 function adjustLayout() {
     let screenWidth = window.innerWidth;
        // Adjusting font sizes dynamically
-       let header = document.querySelector(".header");
+       let header = document.querySelector("h1");
             if (screenWidth < 768) {
                 header.style.fontSize = "2rem";
             } else if (screenWidth < 1024) {
@@ -349,7 +349,6 @@ function adjustLayout() {
 
         window.addEventListener("resize", adjustLayout);
         window.addEventListener("DOMContentLoaded", adjustLayout);
-    </script>
 </script>
 </body>
 </html>
