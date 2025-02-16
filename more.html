@@ -167,8 +167,11 @@
             .newspaper-subheader {
                 font-size: 16px;
             }
+           .edge-image{
+            width: 30vw;
+            height: auto;
         }
-
+}
         @media (max-width: 768px) {
           .ticket {
                 width: 100px;
@@ -183,9 +186,17 @@
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-
-            .edge-image {
-                display: none;
+           .edge-image {
+              width: 30vw;
+              height: auto;
+              top: 20%;
+            }
+            .left{
+              top: 15%;
+              left: 3px;
+            }
+            .nav-button{
+              font-size: 2vh;
             }
         }
     </style>
@@ -250,7 +261,7 @@
                 header.style.fontSize = "2rem";
                 subheader.style.fontSize = "1rem";
             } else if (screenWidth < 1024) {
-                header.style.fontSize = "3.5rem";
+                header.style.fontSize = "3rem";
                 subheader.style.fontSize = "1.2rem";
             } else {
                 header.style.fontSize = "5rem";
