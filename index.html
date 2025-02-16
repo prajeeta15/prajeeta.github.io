@@ -726,6 +726,36 @@ a {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
+    @media (max-width: 768px){
+      .nav-button{
+           font-size: 0.7rem;}
+      .floating-image{
+          width: 5vw;}
+      .show-about{
+          width: 10vw;
+          height: auto;}
+      img { width: 100%; }
+      iframe { width: 300px !important; height: 150px !important; }
+      [data-pin-do="embedBoard"] { width: 300px !important; }
+       h1 { font-size: 40px !important; }
+       p { font-size: 14px !important; }
+      .flex a img { width: 24px !important; height: 24px !important; }}
+
+     @media (max-width: 1024px){
+      .nav-button{
+    font-size: 0.7rem;}
+      .floating-image{
+    width: 10vw;}
+       .show-about{
+      width: 20vw;
+      height: auto;}
+         img { width: 80%; }
+         iframe { width: 350px !important; height: 180px !important; }
+     [data-pin-do="embedBoard"] { width: 350px !important; }
+        h1 { font-size: 50px !important; }
+        p { font-size: 16px !important; }
+       .flex a img { width: 20px !important; height: 18px !important; }
+    }
   </style>
 </head>
 <body class="text-white">
@@ -852,8 +882,8 @@ a {
     <a href="https://www.behance.net/prajeetapal">
       <img src="behance.png" alt="Behance" class="w-5 h-5" />
     </a>
-    <a href="https://open.spotify.com/user/31c3rqhwc6tqwpjaug367z2ujepy?si=dc44017fce58465d">
-      <img src="spotify.png" alt="Spotify" class="w-5 h-5" />
+   <a href="mailto:prajeetapal@email.com">
+      <img src="email.png" alt="Email" class="w-5 h-5" />
     </a>
   </div>
 
@@ -1386,7 +1416,26 @@ a {
 function startGame() {
   console.log("Game Started!"); // Replace with actual game activation logic
 }
+function adjustFontSizes() {
+    let elements = document.querySelectorAll("h1, h2, h3, p, span, div, a, button"); // Select all text elements
 
+    elements.forEach(element => {
+      let computedStyle = window.getComputedStyle(element);
+      let originalSize = parseFloat(computedStyle.fontSize); // Get current font size
+
+      if (window.innerWidth < 768) { // Small screens (mobile)
+        element.style.fontSize = (originalSize * 0.7) + "px"; // Reduce size by 30%
+      } else if (window.innerWidth < 1024) { // Tablets
+        element.style.fontSize = (originalSize * 0.85) + "px"; // Reduce size by 15%
+      } else {
+        element.style.fontSize = ""; // Reset for larger screens
+      }
+    });
+  }
+
+  // Run on page load and window resize
+  window.addEventListener("load", adjustFontSizes);
+  window.addEventListener("resize", adjustFontSizes);
   </script>
 
 </body>
