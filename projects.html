@@ -206,6 +206,49 @@
     width: 150px;
     height: auto;
 }
+        
+@media (max-width: 768px)
+{
+    .projects-container{
+            gap: 45px;
+            width: 40%;
+            max-width: 400vw;
+            margin: 0 auto;
+    }
+
+    .h1 {
+        width: 30vh; 
+    }
+    .nav-button{
+        justify-content: center;
+        font-size: small;
+        width: 5vh;
+    }
+    .gif{
+        width: 25vw;
+    }
+}
+@media (max-width: 1024px)
+{
+    .projects-container{
+            gap: 45px;
+            width: 40%;
+            max-width: 400vw;
+            margin: 0 auto;
+    }
+
+    .h1 {
+        width: 30vh; 
+    }
+    .nav-button{
+        justify-content: center;
+        font-size: small;
+        width: 5vh;
+    }
+    .gif{
+        width: 30vw;
+    }
+}
     </style>
 </head>
 <body>
@@ -215,6 +258,7 @@
         <a href="index.html" class="nav-button">Home</a>
         <a href="projects.html" class="nav-button">Projects</a>
         <a href="designs.html" class="nav-button">Designs</a>
+         <a href="recipes.html" class="nav-button">Recipes</a>
         <a href="more.html" class="nav-button">More</a>
     </nav>
 </header>
@@ -281,6 +325,23 @@ function blinkHeart() {
 }
 
 blinkHeart();
+    function adjustLayout() {
+       // Adjusting font sizes dynamically
+       let header = document.querySelector(".header");
+            if (screenWidth < 768) {
+                header.style.fontSize = "3rem";
+                subheader.style.fontSize = "1rem";
+            } else if (screenWidth < 1024) {
+                header.style.fontSize = "3.5rem";
+                subheader.style.fontSize = "1.2rem";
+            } else {
+                header.style.fontSize = "5rem";
+                subheader.style.fontSize = "1.5rem";
+            }
+        }
+
+        window.addEventListener("resize", adjustLayout);
+        window.addEventListener("DOMContentLoaded", adjustLayout);
 
 </script>
 </body>
