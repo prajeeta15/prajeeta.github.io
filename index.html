@@ -728,7 +728,7 @@ a {
 
     @media (max-width: 768px){
       .nav-button{
-           font-size: 0.7rem;}
+           font-size: 1.1rem;}
       .floating-image{
           width: 5vw;}
       .show-about{
@@ -737,13 +737,13 @@ a {
       img { width: 100%; }
       iframe { width: 250px !important; height: 150px !important; }
       [data-pin-do="embedBoard"] { width: 300px !important; }
-       h1 { font-size: 40px !important; padding-left: 10px; }
-       p { font-size: 14px !important;padding-left: 10px; }
+       h1 { font-size: 25px !important; padding-left: 20px; }
+       p { font-size: 14px !important;padding-left: 20px; }
       .flex a img { width: 24px !important; height: 24px !important; }}
 
      @media (max-width: 1024px){
       .nav-button{
-    font-size: 0.7rem;}
+    font-size: 2rem;}
       .floating-image{
     width: 10vw;}
        .show-about{
@@ -752,8 +752,8 @@ a {
          img { width: 80%; }
          iframe { width: 300px !important; height: 180px !important; }
      [data-pin-do="embedBoard"] { width: 350px !important; }
-        h1 { font-size: 50px !important; padding-left: 10px; }
-        p { font-size: 16px !important; padding-left: 10px;}
+        h1 { font-size: 25px !important; padding-left: 20px; }
+        p { font-size: 16px !important; padding-left: 20px;}
        .flex a img { width: 20px !important; height: 18px !important; }
     }
   </style>
@@ -1416,26 +1416,6 @@ a {
 function startGame() {
   console.log("Game Started!"); // Replace with actual game activation logic
 }
-function adjustFontSizes() {
-    let elements = document.querySelectorAll("h1, h2, h3, p, span, div, a, button"); // Select all text elements
-
-    elements.forEach(element => {
-      let computedStyle = window.getComputedStyle(element);
-      let originalSize = parseFloat(computedStyle.fontSize); // Get current font size
-
-      if (window.innerWidth < 768) { // Small screens (mobile)
-        element.style.fontSize = (originalSize * 0.7) + "px"; // Reduce size by 30%
-      } else if (window.innerWidth < 1024) { // Tablets
-        element.style.fontSize = (originalSize * 0.85) + "px"; // Reduce size by 15%
-      } else {
-        element.style.fontSize = ""; // Reset for larger screens
-      }
-    });
-  }
-
-  // Run on page load and window resize
-  window.addEventListener("load", adjustFontSizes);
-  window.addEventListener("resize", adjustFontSizes);
   </script>
 
 </body>
