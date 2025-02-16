@@ -213,12 +213,12 @@
     .projects-container{
             gap: 45px;
             width: 40%;
-            max-width: 400vw;
             margin: 0 auto;
+           max-width: 600px;
     }
 
     .h1 {
-        width: 20vh; 
+        width: 15vh; 
     }
     .nav-button{
         justify-content: center;
@@ -235,17 +235,17 @@
     .projects-container{
             gap: 45px;
             width: 40%;
-            max-width: 400vw;
             margin: 0 auto;
+            max-width: 600px;
     }
 
     .h1 {
-        width: 30vh; 
+        width: 20vh; 
     }
     .nav-button{
         justify-content: center;
         font-size: small;
-        width: 5vh;
+        width: 4vh;
         text-wrap: none;
     }
     .gif{
@@ -329,17 +329,15 @@ function blinkHeart() {
 
 blinkHeart();
     function adjustLayout() {
+        let screenWidth = window.innerWidth;
        // Adjusting font sizes dynamically
-       let header = document.querySelector(".header");
+         let header = document.querySelector(".header");
             if (screenWidth < 768) {
                 header.style.fontSize = "3rem";
-                subheader.style.fontSize = "1rem";
             } else if (screenWidth < 1024) {
                 header.style.fontSize = "3.5rem";
-                subheader.style.fontSize = "1.2rem";
             } else {
                 header.style.fontSize = "5rem";
-                subheader.style.fontSize = "1.5rem";
             }
         }
 
