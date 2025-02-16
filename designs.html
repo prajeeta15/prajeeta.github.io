@@ -193,11 +193,13 @@ h1 {
      width:100px;
      height:150px;
      transform: rotate(-5deg);
+  }
   .gameboy-screen{
         top: 20px;
         left: 20px;
         width: 60px;
         height: 60px;
+  }
     .gameboy.on .gameboy-screen{
         top: 20px;
         left: 20px;
@@ -230,11 +232,13 @@ h1 {
      width:80px;
      height:120px;
      transform: rotate(0deg)
+  }
   .gameboy-screen{
         top: 10px;
         left: 10px;
         width: 40px;
         height: 40px;
+  }
     .gameboy.on .gameboy-screen{
        top: 10px;
         left: 10px;
@@ -270,6 +274,7 @@ h1 {
           <div id="loading-text">LOADING...</div>
           <div id="loading-bar-container">
             <div id="loading-bar"></div>
+          </div>
    
     </main>
     <img src="spaceship.gif" class="spaceship" alt="Spaceship">
@@ -421,9 +426,13 @@ function createDialogBox() {
 document.addEventListener("DOMContentLoaded", function () {
     const gameboy = document.querySelector(".gameboy");
     
-    gameboy.addEventListener("click", function () {
-        gameboy.classList.toggle("on");
-    });
+    if (gameboy) {
+        gameboy.addEventListener("click", function () {
+            gameboy.classList.toggle("on");
+        });
+    }
+});
+
 
     const spaceship = document.querySelector(".spaceship");
     if (spaceship) {
