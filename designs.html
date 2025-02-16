@@ -178,7 +178,27 @@ h1 {
   width: 100px; /* Adjust size as needed */
   animation: spaceshipMove 10s linear infinite; /* Moves continuously */
 }
-
+@media (max-width: 1024px){
+  .gameboy{
+    width: 80px;
+    height: 100px;}
+  .loading-bar-container{
+    width: 240px;
+    height: 30px;}
+  .dialog-box{
+    width: 100px;}
+}
+@media (max-width: 768px){
+  .gameboy{
+    width: 80px;
+    height: 100px;}
+  .loading-bar-container{
+    width: 120px;
+    height: 20px;}
+  .dialog-box{
+    width: 100px;}
+}
+      
 </style>
 
   </head>
@@ -365,7 +385,24 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceship.style.objectFit = "contain"; // Ensures image is fully visible
     }
 });
+      function adjustLayout() {
+          let screenWidth = window.innerWidth;
+          let header = document.querySelector(".newspaper-header");
+            let subheader = document.querySelector(".newspaper-subheader");
+
+            if (screenWidth < 768) {
+                header.style.fontSize = "2rem";
+                subheader.style.fontSize = "1rem";
+            } else if (screenWidth < 1024) {
+                header.style.fontSize = "2rem";
+                subheader.style.fontSize = "1.2rem";
+            } else {
+                header.style.fontSize = "5rem";
+                subheader.style.fontSize = "1.5rem";
+            }
+        }
+      window.addEventListener("resize", adjustLayout);
+      window.addEventListener("DOMContentLoaded", adjustLayout);
     </script>
-    
   </body>
 </html>
