@@ -42,24 +42,26 @@
             z-index: 1000;
         }
 
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: right;
-            align-items: right;
-            gap: 6px;
-        }
+         nav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+      }
 
-        .nav-button {
-            font-family: 'Alata', sans-serif;
-            font-size: 1.1rem;
-            padding: 12px 18px;
-            color: rgb(244, 239, 239);
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-            cursor: url("cursor.png"), default;
-        }
-
+      .nav-button {
+        font-family: 'Alata', sans-serif;
+        font-size: 1.1rem;
+        padding: 12px 18px;
+        color: rgb(244, 239, 239);
+        text-decoration: none;
+        cursor: url("cursor.png"), default;
+      }
+    
         .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -210,40 +212,50 @@
         
 @media (max-width: 768px)
 {
-    nav{
-          width: 18vw;}
-    .nav-button{
-          font-size: 0.7rem;}
+  .nav{
+    width: 18vw;}
+  .nav-button{
+    font-size: 0.7rem;}
     .projects-container{
-            gap: 45px;
-            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center:
+            gap: 30px;
+            width: 90%;
             margin: 0 auto;
-           max-width: 400px;}
+            max-width: 400px;}
     .h1 {
-        width: 10vh; 
-        font-size: 2rem;
+        width: 100%; 
+        font-size: 1.8rem;
+        text-align: center;
     }
     .gif{
-        width: 23vw;
+        width: 60vw;
+        max-width:200px;
     }
 }
 @media (max-width: 1024px)
 {
     .projects-container{
-            gap: 45px;
-            width: 40%;
+           display: flex;
+            flex-direction: column;
+            align-items: center:
+            gap: 40px;
+            width: 80%;
             margin: 0 auto;
-            max-width: 400px;}
+            max-width: 600px; }
     .h1 {
-        width: 17vh; 
-        font-size:2rem;
+        width: 100%; 
+        text-align: center;
+        font-size:2.5rem;
     }
-     .nav{
-            width: 20vw;}
+    .nav{
+    width: 20vw;}
      .nav-button{
-            font-size: 1rem;}
+    font-size: 1rem;}
     .gif{
-        width: 27vw;
+        width: 40vw;
+        max-width: 300px;
     }
 }
     </style>
