@@ -426,15 +426,11 @@ function createDialogBox() {
 document.addEventListener("DOMContentLoaded", function () {
     const gameboy = document.querySelector(".gameboy");
     
-    if (gameboy) {
-        gameboy.addEventListener("click", function () {
-            gameboy.classList.toggle("on");
-        });
-    }
-});
+    gameboy.addEventListener("click", function () {
+        gameboy.classList.toggle("on");
+    });
 
-
-    const spaceship = document.querySelector(".spaceship");
+  const spaceship = document.querySelector(".spaceship");
     if (spaceship) {
         spaceship.style.position = "absolute";  // Ensure absolute positioning
         spaceship.style.left = "0px";
