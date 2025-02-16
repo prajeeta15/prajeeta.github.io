@@ -205,49 +205,74 @@
     justify-content: center;
     width: 100%;
 }
-
+       h1{          
+           font-size: 2em;
+            text-align: center;
+            max-width: 30vw;}
 .gif {
-    max-width: 150vw;
-    width: 20vw;
+    max-width: 80vw;
+    width: 10vw;
     height: auto;
 }
 @media (max-width: 768px)
 { 
-   nav{
-        position: absolute;
-        transform: translateX(-50%); 
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;}
-    .nav-button{
-          font-size: 0.7rem;}
-    .projects-container{
+   nav {
+            position: static;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 30px;
             width: 90%;
             margin: 0 auto;
-    }
+        }
+     h1{    font-size: 1em;
+            text-align: center;
+            max-width: 30vw;}
+    .nav-button{
+          font-size: 0.7rem;}
     .gif{
-        width: 25vw;
+        width: 20vw;
     }
 }
 @media (max-width: 1024px)
-{    nav{flex-direction: column;
-        align-items: center;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: center;
-        width: 100%;
-           }
-     .nav-button{
-            font-size: 1rem;}
-    .projects-container{
-            gap: 45px;
+{ 
+     nav {
+            position: static;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
             width: 90%;
             margin: 0 auto;
-    }
+        }
+         
+ h1{        font-size: 2em;
+            text-align: center;
+            max-width: 30vw;}
+     .nav-button{
+            font-size: 1rem;}
     .gif{
-        width: 30vw;
+        width: 25vw;
     }
 }
     </style>
