@@ -179,16 +179,25 @@ h1 {
   animation: spaceshipMove 10s linear infinite; /* Moves continuously */
 }
 @media (max-width: 1024px){
-  .nav{
-    width: 20vw;}
-  .nav-button{
-    font-size: 1rem;}
+  nav {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+  }
   .gameboy{
-    width: 80px;
-    height: 100px;}
+     right:30px;
+     bottom: 80px;
+     width:130px;
+     height:180px;
+     transform: rotate(-5deg);
   .gameboy-screen{
-    width: 60px;
-    height: 70px;}
+        top: 25px;
+        left: 25px;
+        width: 80px;
+        height: 70px;
   .loading-bar-container{
     width: 240px;
     height: 30px;}
@@ -196,16 +205,30 @@ h1 {
     width: 100px;}
 }
 @media (max-width: 768px){
-  .nav{
-    width: 18vw;}
-  .nav-button{
-    font-size: 0.7rem;}
+   nav {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%); 
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+  .nav-button {
+        font-size: 1rem; 
+        padding: 10px 16px;
+    }
   .gameboy{
-    width: 80px;
-    height: 100px;}
+     right:20px;
+     bottom: 50px;
+     width:100px;
+     height:140px;
+     transform: rotate(0deg)
   .gameboy-screen{
-    width: 60px;
-    height: 70px;}
+        top: 20px;
+        left: 20px;
+        width: 60px;
+        height: 50px;
   .loading-bar-container{
     width: 120px;
     height: 20px;}
