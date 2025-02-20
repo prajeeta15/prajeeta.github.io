@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"> 
+
+    <title>Falling Blocks</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            font-family: 'Jersey 10', sans-serif;
+        }
+        canvas {
+            background-color: #fff;
+        }
+        #startButton {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hidden initially */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#startButton img {
+    width: 200px;
+    height: 80px;
+}
+
+    </style>
+    </head>
+<body>
+    <canvas id="gameCanvas">      
+    </canvas>
+    <button id="startButton" onclick="window.location.href='home.html'">
+        <img src="play.png" alt="Play">
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>
