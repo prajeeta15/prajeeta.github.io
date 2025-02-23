@@ -3,216 +3,176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog - Portfolio Website</title>
+    <title>Blog - Pixelated Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Alata" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"> 
+
     <style>
-       body {
-            background: url('newspaper.jpg');
-            font-family: 'Times New Roman', serif;
+        body {
+            background: url('About.png');
+            font-family: 'Jersey 10', sans-serif;
             margin: 0;
             padding: 20px;
-            color:  rgb(70, 44, 44);
+            color: rgb(255, 255, 255);
             cursor: url("cursor.png"), default;
+            background-size: cover;
+            background-position: center;
         }
-        body::before {
-           content: "";
-           position: fixed; 
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           background: url('newspaper.jpg') no-repeat center center/cover;
-           opacity: 0.3; 
-           z-index: -1; 
-}
-        
+
         nav {
             display: flex;
-            flex-wrap: wrap;
             justify-content: right;
-            align-items: right;
-            gap: 6px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
         }
 
         .nav-button {
             font-family: 'Alata', sans-serif;
             font-size: 1.1rem;
             padding: 12px 18px;
-            color: rgb(70, 44, 44);
+            color: rgb(255, 255, 255);
             text-decoration: none;
             transition: color 0.3s ease-in-out;
-            cursor: url("cursor.png"), default;
         }
 
         .newspaper-header {
             text-align: center;
-            font-family: 'Old Standard TT', serif;
             font-size: 5rem;
             font-weight: 800;
-            border-bottom: 4px double rgb(47, 32, 32);
+            padding-top: 50px;
             padding-bottom: 10px;
             margin-bottom: 20px;
+            color: white;
         }
-        .newspaper-subheader {
-            text-align: center;
-            font-style: italic;
-            font-size: 20px;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
+        
         .content-wrapper {
-            display: grid;
-            grid-template-columns: 0.2fr 2fr 1fr;
-            gap: 20px;
-            align-items: start;
-        }
-        .main-article {
-            background: #ded0ad;
-            padding: 20px;
-            border: 1px solid #ccc;
-            transition: background 0.3s ease, box-shadow 0.3s ease;}
-
-           .main-article:hover {
-              background: #e8c97f; /* Lighter shade for highlight */
-              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
-              border-color: #aaa; /* Slightly darker border */
-             }
-        .main-article h1 {
-            font-size: 2rem;
-            font-weight: 800;
-        }
-        .sidebar {
-            background: #e4d9c9;
-            padding: 15px;
-            border: 1px solid #ccc;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-          }
-
-         .sidebar:hover {
-            background: #e4cb91; /* Lighter shade for highlight */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 2); /* Soft shadow effect */
-            border-color: #aaa; /* Slightly darker border */
-            }
-        .blog-post {
-            margin-bottom: 20px;
-            border-bottom: 1px dashed black;
-            padding-bottom: 10px;
-        }
-        .blog-post h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .blog-post a {
-            text-decoration: none;
-            font-weight: bold;
-            color: darkred;
-            border-bottom: 1px dashed darkred;
-        }
-        .ticket-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 40px;
+            align-items: start;
+            margin-top: 20px;
         }
-        .ticket {
-            position: relative;
-            width: 130px;
-            height: 260px;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .ticket:hover {
-            transform: rotateY(180deg);
-        }
-        .ticket img {
+
+    .main-article{
+    flex: 1;
+    background: url('article.png') no-repeat center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 40px; 
+    color: white;
+    text-shadow: 2px 2px black;
+    max-width: 450px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+    position: relative;
+    transition: top 0.3s ease-in-out;
+}
+.main-article:hover {
+    top: -20px; 
+}
+
+.sidebar {
+    flex: 1;
+    background: url('article.png') no-repeat center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 40px; 
+    color: white;
+    text-shadow: 2px 2px black;
+    max-width: 450px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+    position: relative;
+    top: 40px;
+    transition: top 0.3s ease-in-out;
+}
+
+.sidebar:hover {
+    top: -6px; 
+}
+
+.main-article h1, .sidebar h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.main-article p, .sidebar p {
+    font-size: 1.2rem;
+    max-width: 90%;
+}
+
+        .floating-image {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-        }
-        .ticket .back {
-            transform: rotateY(180deg);
-        }
-        .edge-image {
-    position: fixed;
-    top: 22%;
-    width: 150px; 
-    height: auto;
-    transform: translateY(-50%); 
-    z-index: 1000; }
-
-.left {
-    left: 5px; 
-}
-
-.right {
-    right: 5px; 
-}
-@media (max-width: 1024px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .ticket {
-                width: 130px;
-                height: 260px;
-            }
-
-            .newspaper-header {
-                font-size: 3.5rem;
-            }
-
-            .newspaper-subheader {
-                font-size: 16px;
-            }
-           .edge-image{
-            width: 30vw;
+            width: 50px;
             height: auto;
-             top: 20%;
-            }
-            .left{
-              top: 15%;
-              left: 3px;
-            }
-          .right{
-            right: 2px;
+            animation: bounce 2s infinite;
         }
+
+        .float-img-1 { top: 15%; left: 25%; }
+        .float-img-2 { top: 60%; right: 15%; }
+        .float-img-3 { bottom: 10%; left: 25%; }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+.article-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 5px;   
 }
-        @media (max-width: 768px) {
-          .ticket {
-                width: 110px;
-                height: 220px;
-            }
 
-            .newspaper-header {
-                font-size: 3rem;
-            }
+.dialog-box {
+    width: 300px;
+    background: #222;
+    border: 4px solid white;
+    box-shadow: 4px 4px 0px black;
+    font-family: 'Jersey 10';
+    margin: 40px auto;
+    text-align: center;
+    margin-top: 20px ;
+    position: relative;
+    transition: top 0.3s ease-in-out;
+}
+.dialog-box:hover {
+    top: -20px; 
+}
 
-            .content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-           .edge-image {
-              width: 30vw;
-              height: auto;
-              top: 20%;
-            }
-            .left{
-              top: 15%;
-              left: 3px;
-            }
-          .right{
-            right: 2px;
-          }
-            .nav-button{
-              font-size: 2vh;
-            }
-          .header{
-            width: 20vw;
-          }
-        }
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: gray;
+    padding: 8px;
+    color: white;
+    font-family: 'Jersey 10';
+    font-size: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid white;
+}
+
+.dialog-content img {
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated; /* Keeps a pixelated look */
+}
+
     </style>
   </head>
   <body>
@@ -224,66 +184,41 @@
         <a href="more.html" class="nav-button">More</a>
       </nav>
     </header>
-    <div class="newspaper-header">The Journal</div>
-        <div class="newspaper-subheader">"Thoughts, News & More"</div>
-        <img src="left.png" alt="Left Image" class="edge-image left">
-        <img src="right.png" alt="Right Image" class="edge-image right">
-
+    
+    <div class="newspaper-header">The Pixelated Journal</div>
+    
     <main>
       <div class="content-wrapper">
-        <section class="ticket-container">
-          <div class="ticket">
-                <img src="concert.png" alt="Ticket Front" class="front">
-                <img src="concert back.png" alt="Ticket Back" class="back">
-            </div>
-          </section>
-        <section class="main-article">
-            <h1>Every graphic design trend creates a certain shift.</h1>
-            <p>coming soon...</p>
-        </section>
-        
         <aside class="sidebar">
-            <div class="blog-post">
-                <h2>Fault Lines- Unspoken Desires and Neon Dreams </h2>
-                <p>Emily Itami’s debut novel, Fault Lines, is a deeply introspective and poignant exploration of human relationships, choices, and the complexities of love. Told from the perspective of Mizuki....</p>
-                <a href="https://medium.com/@prajeetapal/fault-lines-unspoken-desires-and-neon-dreams-74e026517681">Read More</a>
-            </div>
+            <h2>Fault Lines - Book Review</h2>
+            <p>Emily Itami’s debut novel, Fault Lines, explores human relationships and choices...</p>
+            <a href="https://medium.com/@prajeetapal">Read More</a>
         </aside>
-    
+        <div class="article-container">
+        <section class="main-article">
+            <h1>Retro Design Trends</h1>
+            <p>Coming soon...</p>
+        </section>
+        <!-- Old-School Pixelated Dialog Box -->
+        <div class="dialog-box">
+            <div class="dialog-header">
+                <span class="dialog-title">Preview</span>
+            <div class="dialog-controls">
+                <span class="minimize">_</span>
+                <span class="maximize">☐</span>
+                <span class="close">X</span>
         </div>
+    </div>
+    <div class="dialog-content">
+        <img src="news.jpeg" alt="Pixelated Preview">
+    </div>
+    </div>
+    </div>
+    </div>
     </main>
-    <script>
-      function adjustLayout() {
-          let screenWidth = window.innerWidth;
 
-          let ticket = document.querySelector(".ticket");
-          if (screenWidth < 768) {
-                ticket.style.width = "100px";
-                ticket.style.height = "200px";
-            } else if (screenWidth < 1024) {
-                ticket.style.width = "120px";
-                ticket.style.height = "240px";
-            } else {
-                ticket.style.width = "150px";
-                ticket.style.height = "280px";
-            }
-      
-            let header = document.querySelector(".newspaper-header");
-            let subheader = document.querySelector(".newspaper-subheader");
-
-            if (screenWidth < 768) {
-                header.style.fontSize = "2rem";
-                subheader.style.fontSize = "1rem";
-            } else if (screenWidth < 1024) {
-                header.style.fontSize = "3rem";
-                subheader.style.fontSize = "1.2rem";
-            } else {
-                header.style.fontSize = "5rem";
-                subheader.style.fontSize = "1.5rem";
-            }
-        }
-      window.addEventListener("resize", adjustLayout);
-      window.addEventListener("DOMContentLoaded", adjustLayout);
-  </script>
+    <img src="Chat.png" class="floating-image float-img-1" alt="Floating Image 1">
+    <img src="Diary.png" class="floating-image float-img-2" alt="Floating Image 2">
+    <img src="Camera.png" class="floating-image float-img-3" alt="Floating Image 3">
   </body>
 </html>
