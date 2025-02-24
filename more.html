@@ -121,7 +121,7 @@
         }
 
         .float-img-1 { top: 15%; left: 25%; }
-        .float-img-2 { top: 60%; right: 15%; }
+        .float-img-2 { top: 60%; right: 5%; }
         .float-img-3 { bottom: 10%; left: 25%; }
 
         @keyframes bounce {
@@ -174,8 +174,46 @@
     height: auto;
     image-rendering: pixelated; /* Keeps a pixelated look */
 }
+.ticket-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
 
-    </style>
+.ticket {
+    width: 200px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.ticket:hover {
+    transform: rotateY(180deg);
+}
+
+.ticket-front,
+.ticket-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+}
+
+.ticket-front img,
+.ticket-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.ticket-back {
+    transform: rotateY(180deg);
+}
+</style>
   </head>
   <body>
     <header>
@@ -215,6 +253,15 @@
         <img src="news.jpeg" alt="Pixelated Preview">
     </div>
     </div>
+    </div>
+        <div class="ticket-container">
+    <div class="ticket">
+        <div class="ticket-front">
+            <img src="concert.png" alt="Ticket Front">
+        </div>
+        <div class="ticket-back">
+            <img src="concert back.png" alt="Ticket Back">
+        </div>
     </div>
     </div>
     </main>
