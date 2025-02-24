@@ -1,3 +1,8 @@
+   tailwind.config = {
+    theme: {
+      extend: {},
+    },
+  };
  const banner = document.getElementById("banner");
         const bannerClone = document.getElementById("banner-clone");
         bannerClone.innerHTML = banner.innerHTML;
