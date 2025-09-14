@@ -39,30 +39,33 @@
       }
 
       .nav-button {
-  font-family: 'Alata', sans-serif;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-      
+        font-family: 'Alata', sans-serif;
+        font-size: 1.1rem;
+        padding: 12px 18px;
+        color: rgb(244, 239, 239);
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+        cursor: url("cursor.png"), default;
+      }
 h1 {
-  font-family: 'Jersey 10', sans-serif;
-  animation: glitch 0.1s infinite alternate;
-}
-
-@keyframes glitch {
+            font-family: 'Jersey 10', sans-serif;
+            font-size: 16em;
+            color: white;
+            margin: 20px 0;
+            text-align: center;
+            max-width: 120vw;
+            word-wrap: break-word;
+        }
+      
+      
+      @keyframes glitch {
   0% { text-shadow: -2px 2px red; }
   50% { text-shadow: 2px -2px blue; }
   100% { text-shadow: -2px 2px red; }
 }
-
-.nav-button {
-  font-family: 'Alata', sans-serif;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+h1 {
+  animation: glitch 0.1s infinite alternate;
 }
-
 .gameboy {
         position: fixed;
         right: 50px;
@@ -129,9 +132,13 @@ h1 {
   animation: blink 0.2s infinite alternate; /* Blinking effect */
 }
 @keyframes spaceshipMove {
-  0% { top: 100vh; }
-  100% { top: -100px; }
-  
+  0% {
+    top: 100vh; /* Start off-screen at the bottom */
+  }
+  100% {
+    top: -100px; /* Move off-screen at the top */
+  }
+}
 .dialog-box {
             position: absolute;
             width: 200px;
@@ -224,33 +231,27 @@ h1 {
 </style>
 
   </head>
-  <body class="bg-black text-white font-sans overflow-x-hidden">
-  <header>
-    <nav class="fixed top-4 right-4 flex flex-wrap gap-4 z-50">
-      <a href="home.html" class="nav-button border-2 border-white px-4 py-2 bg-black hover:bg-white hover:text-black transition">Home</a>
-      <a href="projects.html" class="nav-button border-2 border-white px-4 py-2 bg-black hover:bg-white hover:text-black transition">Projects</a>
-      <a href="designs.html" class="nav-button border-2 border-white px-4 py-2 bg-black hover:bg-white hover:text-black transition">Designs</a>
-      <a href="more.html" class="nav-button border-2 border-white px-4 py-2 bg-black hover:bg-white hover:text-black transition">More</a>
+  <body>
+    <header>
+      <nav>
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="projects.html" class="nav-button">Projects</a>
+        <a href="designs.html" class="nav-button">Designs</a>
+        <a href="more.html" class="nav-button">More</a>
     </nav>
-  </header>
-
-  <main class="pt-32 px-4 md:px-16">
-    <h1 class="text-7xl md:text-[10rem] font-black tracking-widest text-center animate-pulse">DESIGNS</h1>
-
-    <div id="loading-bar-wrapper" class="my-12 text-center">
-      <div id="loading-text" class="text-2xl md:text-4xl text-lime-400 font-mono">LOADING...</div>
-      <div id="loading-bar-container" class="w-4/5 md:w-[400px] h-12 mx-auto border-4 border-white bg-gray-700 relative overflow-hidden shadow-2xl">
-        <div id="loading-bar" class="bg-pink-400 h-full animate-pulse" style="width: 0%;"></div>
-      </div>
-    </div>
-  </main>
-
-    <div class="fixed right-8 bottom-24 md:bottom-16 md:right-16 w-32 h-44 bg-contain bg-no-repeat rotate-[-10deg]" style="background-image: url('gameboy.png'); cursor: pointer;" onclick="toggleGameboyScreen()">
-  <div class="gameboy-screen w-[90px] h-[80px] bg-black absolute top-[30px] left-[30px]"></div>
-</div>
-
-    <img src="spaceship.gif" alt="Spaceship" class="absolute left-4 w-24 animate-[spaceshipMove_10s_linear_infinite]">
+    </header>
+    
+    <main class="relative">   
+      <div class="gameboy" onclick="toggleGameboyScreen()">
+        <div class="gameboy-screen"></div>
+      </div>   
+        <h1 class="text-7xl font-extrabold text-white" style="letter-spacing: 0.2em;">DESIGNS</h1>
+        <div id="loading-bar-wrapper">
+          <div id="loading-text">LOADING...</div>
+          <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+          </div>
+    </main>
+    <img src="spaceship.gif" class="spaceship" alt="Spaceship">
    <script src="designs-script.js"></script>
   </body>
-</html> 
-
