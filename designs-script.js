@@ -142,12 +142,12 @@ function createDialogBox() {
     document.body.appendChild(dialog);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const gameboy = document.querySelector(".gameboy");
     
-    gameboy.addEventListener("click", function () {
-        gameboy.classList.toggle("on");
-    });
+function toggleGameboyScreen() {
+  const screen = document.querySelector(".gameboy-screen");
+  screen.style.backgroundImage = screen.style.backgroundImage ? "" : "url('gameboy-screen.png')";
+}
+
 
     const spaceship = document.querySelector(".spaceship");
     if (spaceship) {
